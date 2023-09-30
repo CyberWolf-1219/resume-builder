@@ -1,0 +1,126 @@
+import React, {
+  ChangeEvent,
+  useState,
+  useRef,
+  SetStateAction,
+  useEffect,
+} from 'react';
+
+import { EducationInfo } from '../../../types';
+
+interface Props {
+  entryID: number;
+  updateEducationDataArray: React.Dispatch<SetStateAction<EducationInfo[]>>;
+}
+function EducationDataEntry({ entryID, updateEducationDataArray }: Props) {
+  const [educationData, updateEducationData] = useState({
+    degree: '',
+    institute: '',
+    highlights: '',
+  });
+  const timeout = useRef<number>();
+
+  useEffect(() => {
+    updateEducationDataArray((prevArray) => {
+      const newArray = [...prevArray];
+      newArray[entryID] = educationData;
+      return newArray;
+    });
+  }, [educationData]);
+
+  function onDegreeUpdate(e: ChangeEvent<HTMLInputElement>) {
+    e.preventDefault();
+    const value = e.currentTarget.value;
+
+    if (timeout.current) {
+      clearTimeout(timeout.current);
+    }
+
+    timeout.current = setTimeout(() => {
+      updateEducationData((prevState) => {
+        const newState = { ...prevState };
+        newState.degree = value;
+        return newState;
+      });
+    }, 500);
+  }
+
+  function onInstituteUpdate(e: ChangeEvent<HTMLInputElement>) {
+    e.preventDefault();
+    const value = e.currentTarget.value;
+
+    if (timeout.current) {
+      clearTimeout(timeout.current);
+    }
+
+    timeout.current = setTimeout(() => {
+      updateEducationData((prevState) => {
+        const newState = { ...prevState };
+        newState.institute = value;
+        return newState;
+      });
+    }, 500);
+  }
+
+  function onHighlightsUpdate(e: ChangeEvent<HTMLTextAreaElement>) {
+    e.preventDefault();
+    const value = e.currentTarget.value;
+
+    if (timeout.current) {
+      clearTimeout(timeout.current);
+    }
+
+    timeout.current = setTimeout(() => {
+      updateEducationData((prevState) => {
+        const newState = { ...prevState };
+        newState.highlights = value;
+        return newState;
+      });
+    }, 500);
+  }
+
+  return (
+    <div>
+      <div className={'mb-[1rem] text-left'}>
+        <label htmlFor={`input_degree`}>Degree Name:</label>
+        <br />
+        <input
+          onChange={onDegreeUpdate}
+          required={true}
+          type='text'
+          name={`degree`}
+          id={`input_degree`}
+          defaultValue={educationData.degree}
+        />
+      </div>
+      <div className={'mb-[1rem] text-left'}>
+        <label htmlFor={`input_institute`}>Institute:</label>
+        <br />
+        <input
+          onChange={onInstituteUpdate}
+          required={true}
+          type='text'
+          name={`institute`}
+          id={`input_institute`}
+          defaultValue={educationData.institute}
+        />
+      </div>
+      <div className={'text-left'}>
+        <label htmlFor={`input_highlights`}>Achievements:</label>
+        <br />
+        <textarea
+          onChange={onHighlightsUpdate}
+          required={true}
+          name={`highlights`}
+          id={`input_highlights`}
+          maxLength={250}
+          cols={60}
+          rows={10}
+          className={'w-full'}
+          defaultValue={educationData.highlights}></textarea>
+      </div>
+    </div>
+  );
+}
+
+export default EducationDataEntry;
