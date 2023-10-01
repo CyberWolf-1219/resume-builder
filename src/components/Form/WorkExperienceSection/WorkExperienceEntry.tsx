@@ -80,7 +80,7 @@ function WorkExperienceEntry({ entryID, updateWorkExpArray }: Props) {
       const value = element.value;
       updateWorkExpData((prevData) => {
         const newData = { ...prevData };
-        newData.experience.push(value);
+        newData.experience = value.split('\n');
         return newData;
       });
     }, 250);
