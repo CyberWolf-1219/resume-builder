@@ -19,7 +19,6 @@ function SkillsSection() {
   }, [hardSkills, softSkills]);
 
   function onHardSkillEnter(e: KeyboardEvent<HTMLInputElement>) {
-    console.log(e);
     if (e.key.toLowerCase() == 'enter') {
       const value = (e.target as HTMLInputElement).value;
       (e.target as HTMLInputElement).value = '';
@@ -31,7 +30,6 @@ function SkillsSection() {
   }
 
   function onSoftSkillEnter(e: KeyboardEvent<HTMLInputElement>) {
-    console.log(e);
     if (e.key.toLowerCase() == 'enter') {
       const value = (e.target as HTMLInputElement).value;
       (e.target as HTMLInputElement).value = '';
