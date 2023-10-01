@@ -13,10 +13,10 @@ interface Props {
   updateEducationDataArray: React.Dispatch<SetStateAction<EducationInfo[]>>;
 }
 function EducationDataEntry({ entryID, updateEducationDataArray }: Props) {
-  const [educationData, updateEducationData] = useState({
+  const [educationData, updateEducationData] = useState<EducationInfo>({
     degree: '',
     institute: '',
-    highlights: '',
+    highlights: [],
   });
   const timeout = useRef<number>();
 
@@ -73,7 +73,7 @@ function EducationDataEntry({ entryID, updateEducationDataArray }: Props) {
     timeout.current = setTimeout(() => {
       updateEducationData((prevState) => {
         const newState = { ...prevState };
-        newState.highlights = value;
+        newState.highlights = [...value.split('\n').slice(0, 3)];
         return newState;
       });
     }, 500);
@@ -113,7 +113,7 @@ function EducationDataEntry({ entryID, updateEducationDataArray }: Props) {
           required={true}
           name={`highlights`}
           id={`input_highlights`}
-          maxLength={250}
+          maxLength={300}
           cols={60}
           rows={10}
           className={'w-full'}
