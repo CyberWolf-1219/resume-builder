@@ -1,6 +1,6 @@
-import { KeyboardEvent, useContext, useEffect, useState } from 'react';
-import SkillPill from './SkillPill';
+import { useContext, useEffect, useState } from 'react';
 import { FormDataContext } from '../../../contexts/contexts';
+import ItemListInput from '../ItemListInput/ItemListInput';
 
 function SkillsSection() {
   const { updateFormData } = useContext(FormDataContext);
@@ -18,26 +18,12 @@ function SkillsSection() {
     };
   }, [hardSkills, softSkills]);
 
-  function onHardSkillEnter(e: KeyboardEvent<HTMLInputElement>) {
-    if (e.key.toLowerCase() == 'enter') {
-      const value = (e.target as HTMLInputElement).value;
-      (e.target as HTMLInputElement).value = '';
-
-      setHardSkills((prevValue) => {
-        return [...prevValue, value];
-      });
-    }
+  function onHardSkillEnter(skillsList: string[]) {
+    setHardSkills(skillsList);
   }
 
-  function onSoftSkillEnter(e: KeyboardEvent<HTMLInputElement>) {
-    if (e.key.toLowerCase() == 'enter') {
-      const value = (e.target as HTMLInputElement).value;
-      (e.target as HTMLInputElement).value = '';
-
-      setSoftSkills((prevValue) => {
-        return [...prevValue, value];
-      });
-    }
+  function onSoftSkillEnter(skillList: string[]) {
+    setSoftSkills(skillList);
   }
 
   return (
@@ -47,53 +33,15 @@ function SkillsSection() {
       }>
       <legend className={'text-left'}>Skills</legend>
       {/* ADD FILED SET TO ENTER HARD SKILLS */}
-      <div className={'text-left'}>
-        <label htmlFor='input_hard-skills'>Hard Skills:</label>
-        <br />
-        <div
-          className={
-            'w-full h-fit min-h-[50px] mb-[0.25rem] p-[1rem] flex flex-row items-center justify-start gap-[0.5rem] flex-wrap bg-black border-[2px] border-gray-300'
-          }>
-          {hardSkills.map((skill, i) => {
-            return (
-              <SkillPill key={`hard_skill_${i}_${Math.random()}`}>
-                {skill}
-              </SkillPill>
-            );
-          })}
-        </div>
-        <input
-          onKeyDown={onHardSkillEnter}
-          type='text'
-          name='hard_skill'
-          id='input__hard_skills'
-          className={'w-full'}
-        />
-      </div>
+      <ItemListInput
+        title={'Hard Skills'}
+        onItemAdd={onHardSkillEnter}
+      />
       {/* ADD FIELDSET TO ENTER SOFT SKILLS */}
-      <div className={'text-left'}>
-        <label htmlFor='input__soft-skills'>Soft Skills:</label>
-        <br />
-        <div
-          className={
-            'w-full h-fit min-h-[50px] mb-[0.25rem] p-[1rem] flex flex-row items-center justify-start gap-[0.5rem] flex-wrap bg-black border-[2px] border-gray-300'
-          }>
-          {softSkills.map((skill, i) => {
-            return (
-              <SkillPill key={`soft_skill_${i}_${Math.random()}`}>
-                {skill}
-              </SkillPill>
-            );
-          })}
-        </div>
-        <input
-          onKeyDown={onSoftSkillEnter}
-          type='text'
-          name='soft_skill'
-          id='input__soft_skills'
-          className={'w-full'}
-        />
-      </div>
+      <ItemListInput
+        title={'Soft Skills'}
+        onItemAdd={onSoftSkillEnter}
+      />
     </fieldset>
   );
 }
