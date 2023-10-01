@@ -6,6 +6,7 @@ import Button from './Button';
 import WorkExperienceSection from './WorkExperienceSection/WorkExperienceSection';
 import SkillsSection from './SkillSection/SkillsSection';
 import SaleMessageSection from './SaleMessageSection/SaleMessageSection';
+import ProjectsSection from './ProjectsSection/ProjectsSection';
 
 function UserDataForm() {
   return (
@@ -24,6 +25,9 @@ function UserDataForm() {
       </ErrorBoundry>
       <ErrorBoundry>
         <WorkExperienceSection />
+      </ErrorBoundry>
+      <ErrorBoundry>
+        <ProjectsSection />
       </ErrorBoundry>
       <ErrorBoundry>
         <SkillsSection />
