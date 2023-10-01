@@ -14,6 +14,7 @@ interface Props {
 function Button({ children, action, type }: Props) {
   return (
     <button
+      autoFocus={false}
       onClick={action}
       className={`w-full h-fit px-[1.5rem] pt-[0.6rem] pb-[0.75rem] rounded-md border-[2px] ${BUTTON_TYPE[type]}`}>
       {children}
