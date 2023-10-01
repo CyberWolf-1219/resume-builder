@@ -24,14 +24,15 @@ export type WorkExp = {
 export type Project = {
     name: string;
     repoLink: string;
-    techStack: [ string, string, string, string, string, string, string, string ];
-    challenges: [ string, string, string, string ]
+    liveLink: string;
+    techStack: string[];
+    challenges: string[]
 }
 
 export type EducationInfo = {
     degree: string;
     institute: string;
-    highlights: string;
+    highlights: string[];
 };
 
 export type CourseInfo = {
