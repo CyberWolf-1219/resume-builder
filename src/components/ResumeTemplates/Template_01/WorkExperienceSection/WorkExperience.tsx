@@ -11,7 +11,7 @@ function WorkExperience({ workExp }: Props) {
     <li className={'list-disc'}>
       <div>
         <p className={'mb-[0.5em] text-[1.1em] leading-[100%]'}>
-          <small>{workExp.institute}</small>
+          <small>{workExp.workplace}</small>
           <br />
           <strong>{workExp.job}</strong>
         </p>
