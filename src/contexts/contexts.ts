@@ -19,7 +19,7 @@ export const INITIAL_FORM_DATA: FormData = {
     educationInformation: [],
     coursesTaken: [],
     skills: { hardSkills: [], softSkills: [] },
-    professionalStatement: '',
+    profile: '',
 };
 
 export const FormDataContext = createContext({
