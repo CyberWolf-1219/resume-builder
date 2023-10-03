@@ -65,13 +65,14 @@ function JobInformationSection() {
   return (
     <fieldset
       className={
-        'w-full h-fit px-[1rem] py-[0.5rem] flex flex-col items-stretch justify-start gap-[1rem] border-[1px] rounded-[0.25rem]'
+        'w-full h-fit p-[1rem] flex flex-col items-stretch justify-start gap-[0.5rem] border-[2px] border-blue-950 rounded-[8px]'
       }>
-      <legend className={'text-left'}>Job Information</legend>
-      <div className={'text-left'}>
+      <legend>Job Information</legend>
+      <div className={'w-full h-fit'}>
         <label htmlFor='input_position'>Job Role:</label>
         <br />
         <input
+          className={'w-full h-fit'}
           onChange={onPositionInputChange}
           required={true}
           type='text'
@@ -79,20 +80,20 @@ function JobInformationSection() {
           id='input_position'
         />
       </div>
-      <div className={'text-left'}>
+      <div className={'w-full h-fit'}>
         <label htmlFor='input_qualification'>
           Why do you think you can handle this job:
         </label>
         <br />
         <textarea
+          className={'w-full h-fit'}
           onChange={onQulificationInputChange}
           required={true}
           name='qualification'
           id='input_qualification'
           maxLength={500}
-          cols={60}
-          rows={8}
-          className={'w-full'}></textarea>
+          cols={50}
+          rows={8}></textarea>
       </div>
     </fieldset>
   );

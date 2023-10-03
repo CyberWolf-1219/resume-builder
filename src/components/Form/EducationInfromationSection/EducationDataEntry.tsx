@@ -80,11 +80,15 @@ function EducationDataEntry({ entryID, updateEducationDataArray }: Props) {
   }
 
   return (
-    <div>
-      <div className={'mb-[1rem] text-left'}>
+    <div
+      className={
+        'w-full h-fit flex flex-col items-stretch justify-start gap-[0.5rem]'
+      }>
+      <div className={'w-full h-fit'}>
         <label htmlFor={`input_degree`}>Degree Name:</label>
         <br />
         <input
+          className={'w-full h-fit'}
           onChange={onDegreeUpdate}
           required={true}
           type='text'
@@ -93,10 +97,11 @@ function EducationDataEntry({ entryID, updateEducationDataArray }: Props) {
           defaultValue={educationData.degree}
         />
       </div>
-      <div className={'mb-[1rem] text-left'}>
+      <div className={'w-full h-fit'}>
         <label htmlFor={`input_institute`}>Institute:</label>
         <br />
         <input
+          className={'w-full h-fit'}
           onChange={onInstituteUpdate}
           required={true}
           type='text'
@@ -105,10 +110,11 @@ function EducationDataEntry({ entryID, updateEducationDataArray }: Props) {
           defaultValue={educationData.institute}
         />
       </div>
-      <div className={'text-left'}>
+      <div className={'w-full h-fit'}>
         <label htmlFor={`input_highlights`}>Achievements:</label>
         <br />
         <textarea
+          className={'w-full h-fit'}
           onChange={onHighlightsUpdate}
           required={true}
           name={`highlights`}
@@ -116,7 +122,6 @@ function EducationDataEntry({ entryID, updateEducationDataArray }: Props) {
           maxLength={300}
           cols={60}
           rows={10}
-          className={'w-full'}
           defaultValue={educationData.highlights}></textarea>
       </div>
     </div>

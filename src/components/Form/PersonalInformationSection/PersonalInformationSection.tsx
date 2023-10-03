@@ -115,9 +115,9 @@ function PersonalInformationSection() {
   return (
     <fieldset
       className={
-        'w-full h-fit px-[1rem] py-[01rem] flex flex-col items-stretch justify-start gap-[1rem] border-[1px] rounded-[0.25rem] '
+        'w-full h-fit p-[1rem] flex flex-col gap-[0.5rem] border-[2px] border-gray-900 rounded-[8px]'
       }>
-      <legend className={'text-left'}>Personal Information</legend>
+      <legend>Personal Information</legend>
 
       <datalist id={'countries-list'}>
         {Object.entries(COUNTRIES).map(([country], i) => {
@@ -145,67 +145,67 @@ function PersonalInformationSection() {
         })}
       </datalist>
 
-      <div className={'text-left'}>
+      <div className={'w-full h-fit'}>
         <label htmlFor='input_user_name'>Full Name:</label>
         <br />
         <input
+          className={'w-full h-fit'}
           onChange={onNameInputChange}
           required={true}
           type='text'
           name='user_name'
           id='input_user_name'
-          className={'w-full'}
         />
       </div>
 
-      <div className={'text-left'}>
+      <div className={'w-full h-fit'}>
         <label htmlFor='input_country'>Country:</label>
         <br />
         <input
+          className={'w-full h-fit'}
           onChange={onCountryInputChange}
           required={true}
           type='text'
           name='country'
           id='input_country'
-          className={'w-full'}
           list={'countries-list'}
         />
       </div>
-      <div className={'text-left'}>
+      <div className={'w-full h-fit'}>
         <label htmlFor='City'>City:</label>
         <br />
         <input
+          className={'w-full h-fit'}
           onChange={onCityInputChange}
           required={true}
           type='text'
           name='city'
           id='input_city'
-          className={'w-full'}
           list={'cities-list'}
         />
       </div>
-      <div className={'text-left'}>
+      <div className={'w-full h-fit'}>
         <label htmlFor='input_telephone'>Telephone Number:</label>
         <br />
         <input
+          className={'w-full h-fit'}
           onChange={onTelephoneNumberInputChange}
           required={true}
           type='tel'
           name='telephone'
           id='input_telephone'
-          className={'w-full'}
         />
       </div>
-      <div className={'text-left'}>
+      <div className={'w-full h-fit'}>
         <label htmlFor='input_email'>Email:</label>
         <br />
         <input
+          className={'w-full h-fit'}
           onChange={onEmailInputChange}
           required={true}
           type='email'
           name='email'
           id='input_email'
-          className={'w-full'}
         />
       </div>
     </fieldset>

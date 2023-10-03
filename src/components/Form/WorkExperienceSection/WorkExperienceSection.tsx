@@ -58,11 +58,14 @@ function WorkExperienceSection() {
   return (
     <fieldset
       className={
-        'w-full h-fit px-[1rem] py-[0.5rem] flex flex-col items-stretch justify-start gap-[1rem] border-[1px] rounded-[0.25rem]'
+        'w-full h-fit p-[1rem] flex flex-col items-stretch justify-start gap-[1rem] border-[2px] border-blue-950 rounded-[8px]'
       }>
-      <legend className={'text-left'}>Work Experience:</legend>
+      <legend>Work Experience:</legend>
       {workExpEntries}
-      <div className={'flex flex-col items-center justify-start gap-[0.25rem]'}>
+      <div
+        className={
+          'w-full h-fit flex flex-col items-stretch justify-start gap-[0.5rem]'
+        }>
         <Button
           type={'PRIMARY'}
           action={addOneMoreField}>

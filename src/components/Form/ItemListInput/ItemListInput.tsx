@@ -40,7 +40,7 @@ function ItemListInput({ title, onItemAdd }: Props) {
   }
 
   return (
-    <div className={'mb-[1rem]'}>
+    <div className={'w-full h-fit'}>
       <label htmlFor='input__challenge'>{title}:</label>
       <br />
       <div
@@ -59,10 +59,10 @@ function ItemListInput({ title, onItemAdd }: Props) {
         })}
       </div>
       <input
+        className={'w-full h-fit'}
         onKeyDown={pushItem}
         type='text'
         id='input__challenge'
-        className={'w-full h-fit'}
       />
     </div>
   );

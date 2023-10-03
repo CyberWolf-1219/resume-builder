@@ -29,9 +29,9 @@ function SkillsSection() {
   return (
     <fieldset
       className={
-        'w-full h-fit px-[1rem] py-[0.5rem] pb-[1rem] flex flex-col items-stretch justify-start gap-[1rem] border-[1px] rounded-[0.25rem]'
+        'w-full h-fit p-[1rem] flex flex-col items-stretch justify-start gap-[1rem] border-[2px] border-blue-950 rounded-[8px]'
       }>
-      <legend className={'text-left'}>Skills</legend>
+      <legend>Skills</legend>
       {/* ADD FILED SET TO ENTER HARD SKILLS */}
       <ItemListInput
         title={'Hard Skills'}

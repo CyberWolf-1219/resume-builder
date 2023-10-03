@@ -6,11 +6,11 @@ function WorkExperienceSection() {
   const { data } = useContext(FormDataContext);
 
   return (
-    <tr className={'w-full h-fit '}>
-      <td className={'align-top text-left'}>
+    <tr className={'w-full h-fit mb-[1em] text-left align-text-top'}>
+      <td className={'w-[30%] align-text-top text-left'}>
         <h2>Work Experience</h2>
       </td>
-      <td className={'pl-[1rem] align-top text-left'}>
+      <td className={'w-full pl-[1em] align-top text-left'}>
         <ul
           className={
             'flex flex-col items-start justify-start gap-[1em] flex-wrap'

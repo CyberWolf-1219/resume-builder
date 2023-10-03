@@ -87,11 +87,15 @@ function WorkExperienceEntry({ entryID, updateWorkExpArray }: Props) {
   }
 
   return (
-    <div>
-      <div className={'mb-[0.5rem] text-left'}>
+    <div
+      className={
+        'w-full h-fit flex flex-col items-stretch justify-start gap-[0.5rem]'
+      }>
+      <div className={'w-full h-fit'}>
         <label htmlFor={`input__job-role`}>Job Role:</label>
         <br />
         <input
+          className={'w-full h-fit'}
           onChange={onJobPositionInput}
           type='text'
           name={`job-role`}
@@ -99,10 +103,11 @@ function WorkExperienceEntry({ entryID, updateWorkExpArray }: Props) {
           defaultValue={workExpData.job}
         />
       </div>
-      <div className={'mb-[0.5rem] text-left'}>
+      <div className={'w-full h-fit'}>
         <label htmlFor={`input__workplace`}>Workplace:</label>
         <br />
         <input
+          className={'w-full h-fit'}
           onChange={onWorkplaceInput}
           type='text'
           name={`workplace`}
@@ -110,17 +115,17 @@ function WorkExperienceEntry({ entryID, updateWorkExpArray }: Props) {
           defaultValue={workExpData.workplace}
         />
       </div>
-      <div className={'mb-[0.5rem] text-left'}>
+      <div className={'w-full h-fit'}>
         <label htmlFor={`input__achievements`}>Achievements/Experience:</label>
         <br />
         <textarea
+          className={'w-full h-fit'}
           onChange={onExpInput}
           name={`achievements`}
           id={`input__achievements`}
           maxLength={250}
           cols={60}
           rows={5}
-          className={'w-full'}
           defaultValue={workExpData.experience}></textarea>
       </div>
     </div>

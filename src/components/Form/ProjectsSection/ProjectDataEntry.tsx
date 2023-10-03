@@ -104,35 +104,38 @@ function ProjectDataEntry({ entryID, updateProjects }: Props) {
   }
 
   return (
-    <div className={'text-left'}>
-      <div className={'mb-[0.5rem]'}>
+    <div
+      className={
+        'w-full h-fit flex flex-col items-stretch justify-start gap-[0.5rem]'
+      }>
+      <div className={'w-full h-fit'}>
         <label htmlFor='input__project_name'>Project Name:</label>
         <br />
         <input
+          className={'w-full h-fit'}
           onChange={onNameInput}
           type='text'
           id='input__project_name'
-          className={'w-full h-fit'}
         />
       </div>
-      <div className={'mb-[0.5rem]'}>
+      <div className={'w-full h-fit'}>
         <label htmlFor='input__github_link'>Github Link:</label>
         <br />
         <input
+          className={'w-full h-fit'}
           onChange={onGithubLinkInput}
           type='url'
           id='input__github_link'
-          className={'w-full h-fit'}
         />
       </div>
-      <div className={'mb-[0.5rem]'}>
+      <div className={'w-full h-fit'}>
         <label htmlFor='input__live_link'>Live Link:</label>
         <br />
         <input
+          className={'w-full h-fit'}
           onChange={onLiveLinkInput}
           type='url'
           id='input__live_link'
-          className={'w-full h-fit'}
         />
       </div>
       <ItemListInput
