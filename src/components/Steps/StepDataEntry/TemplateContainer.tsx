@@ -10,7 +10,7 @@ function TemplateContainer() {
       const currentScale = parseFloat(
         template.current.style.transform.replace(/\(|\)|scale/g, '')
       );
-      template.current.style.transform = `scale(${currentScale + 0.1})`;
+      template.current.style.transform = `scale(${currentScale + 0.01})`;
     }
   }, []);
 
@@ -20,7 +20,7 @@ function TemplateContainer() {
       const currentScale = parseFloat(
         template.current.style.transform.replace(/\(|\)|scale/g, '')
       );
-      template.current.style.transform = `scale(${currentScale - 0.1})`;
+      template.current.style.transform = `scale(${currentScale - 0.01})`;
     }
   }, []);
 
