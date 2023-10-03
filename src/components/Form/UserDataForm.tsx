@@ -5,15 +5,13 @@ import EducationInformationSection from './EducationInfromationSection/Education
 import Button from './Button';
 import WorkExperienceSection from './WorkExperienceSection/WorkExperienceSection';
 import SkillsSection from './SkillSection/SkillsSection';
-import SaleMessageSection from './SaleMessageSection/SaleMessageSection';
+import Profile from './ProfileSection/ProfileSection';
 import ProjectsSection from './ProjectsSection/ProjectsSection';
 
 function UserDataForm() {
   return (
     <form
-      className={
-        'w-full h-fit p-[1rem] flex flex-col items-stretch justify-start gap-[1rem]'
-      }>
+      className={`w-full max-w-full h-fit p-[1rem] flex flex-col items-stretch justify-start gap-[2rem] bg-slate-100 text-slate-950 text-left`}>
       <ErrorBoundry>
         <PersonalInformationSection />
       </ErrorBoundry>
@@ -33,7 +31,7 @@ function UserDataForm() {
         <SkillsSection />
       </ErrorBoundry>
       <ErrorBoundry>
-        <SaleMessageSection />
+        <Profile />
       </ErrorBoundry>
       <Button
         action={() => {}}
