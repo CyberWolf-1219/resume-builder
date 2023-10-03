@@ -12,8 +12,11 @@ function Project({ project }: Props) {
     <li className={'list-disc'}>
       <div className={'flex flex-col items-start justify-start gap-[0.5rem]'}>
         <p>
-          <strong>{project.name}</strong> |{' '}
+          <strong>{project.name}</strong>
+          &nbsp;|&nbsp;
           <a href={project.repoLink}>GitHub Repo</a>
+          &nbsp;|&nbsp;
+          <a href={project.liveLink}>Live Link</a>
         </p>
         <TechStack techStack={project.techStack} />
         <Bulletpoints bulletpoints={project.challenges} />
