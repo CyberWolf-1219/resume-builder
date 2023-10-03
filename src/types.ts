@@ -48,11 +48,11 @@ export type JobInformation = {
 
 export type FormData = {
     personalInformation: PersonalInformation;
-    jobInformation: JobInformation;
     workExperience: WorkExp[];
     projects: Project[];
     skills: Skills;
     educationInformation: EducationInfo[];
     coursesTaken: CourseInfo[];
-    professionalStatement: string;
+    profile: string;
+    jobInformation: JobInformation;
 };
