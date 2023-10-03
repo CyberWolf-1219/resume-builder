@@ -7,27 +7,41 @@ function TemplateContainer() {
   const zoomIn = useCallback((e: UIEvent) => {
     e.preventDefault();
     if (template.current) {
-      const currentScale = parseFloat(
-        template.current.style.transform.replace(/\(|\)|scale/g, '')
-      );
-      template.current.style.transform = `scale(${currentScale + 0.01})`;
+      const currentScale = parseFloat(template.current.style.scale);
+      console.log(currentScale);
+
+      if (!currentScale) {
+        template.current.style.scale = '0.1';
+      } else {
+        const newScale = (currentScale + 0.01).toString();
+        template.current.style.scale = newScale;
+      }
     }
   }, []);
 
   const zoomOut = useCallback((e: UIEvent) => {
     e.preventDefault();
     if (template.current) {
-      const currentScale = parseFloat(
-        template.current.style.transform.replace(/\(|\)|scale/g, '')
-      );
-      template.current.style.transform = `scale(${currentScale - 0.01})`;
+      const currentScale = parseFloat(template.current.style.scale);
+
+      if (!currentScale) {
+        template.current.style.scale = '0.1';
+      } else {
+        const newScale = (currentScale - 0.01).toString();
+        template.current.style.scale = newScale;
+      }
     }
   }, []);
 
   return (
-    <div className={`relative w-[50%] h-screen max-h-full overflow-hidden`}>
-      <div className={'absolute inset-0 p-[1rem] overflow-auto'}>
-        <Template_01 reference={template} />
+    <div className={`relative w-[60%] h-screen max-h-full overflow-hidden`}>
+      <div className={'absolute inset-0'}>
+        <div
+          className={
+            'absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]'
+          }>
+          <Template_01 reference={template} />
+        </div>
       </div>
       <div
         className={

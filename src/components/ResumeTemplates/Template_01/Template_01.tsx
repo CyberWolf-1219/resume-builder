@@ -19,7 +19,7 @@ function Template_01({ reference }: Props) {
   return (
     <div
       ref={reference}
-      className={`${css.settings} absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] template aspect-[210/297] w-full min-w-[2480px] h-auto mx-auto px-[72px] py-[48px] bg-white text-black scale-[0.16]`}>
+      className={`${css.settings} origin-center aspect-[210/297] w-full min-w-[2480px] h-auto mx-auto px-[72px] py-[48px] bg-white text-black`}>
       <PersonalInfoSection />
       <hr className={'my-[1rem]'} />
       <table
