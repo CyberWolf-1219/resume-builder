@@ -9,15 +9,17 @@ function TemplatePreviewer({ template }: Props) {
 
   useEffect(() => {
     document.addEventListener('wheel', (e) => {
+      if (!e.altKey) {
+        return;
+      }
+
       if (e.deltaY < 0) {
-        console.log('ZOOM IN');
         if (zoomPanel.current) {
           const currentZoom = parseFloat(zoomPanel.current.style.scale);
           const newZoom = currentZoom + 0.005;
           zoomPanel.current.style.scale = newZoom.toString();
         }
       } else {
-        console.log('ZOOM OUT');
         if (zoomPanel.current) {
           const currentZoom = parseFloat(zoomPanel.current.style.scale);
           const newZoom = currentZoom - 0.005;
@@ -25,6 +27,8 @@ function TemplatePreviewer({ template }: Props) {
         }
       }
     });
+
+    alert('ALT + MOUSE WHEEL to Zoom');
 
     return () => {
       document.removeEventListener('wheel', () => {});
@@ -36,7 +40,7 @@ function TemplatePreviewer({ template }: Props) {
       <div className={'print:hidden'}>
         <div
           ref={zoomPanel}
-          style={{ scale: '0.1' }}
+          style={{ scale: '0.6' }}
           className={'relative'}>
           <div
             className={
