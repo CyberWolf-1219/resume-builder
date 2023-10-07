@@ -3,7 +3,7 @@
     .settings {
         font-size: 11pt;
         --heading-font-size: 13pt;
-        --heading-font-weight: 600;
+        --heading-font-weight: 500;
     }
 
     .settings h1,
@@ -33,7 +33,7 @@
     .settings {
         font-size: 11pt;
         --heading-font-size: 13pt;
-        --heading-font-weight: 550;
+        --heading-font-weight: 500;
 
     }
 

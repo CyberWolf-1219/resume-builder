@@ -11,7 +11,7 @@ function PersuationSection() {
       </td>
       <td className={'w-full pl-[1em]'}>
         <p>
-          <strong className={'underline underline-offset-[8px] text-[1.2em]'}>
+          <strong className={'underline underline-offset-[2px]'}>
             {data.jobInformation.position}
           </strong>
           <br />
