@@ -143,7 +143,7 @@ function ProjectDataEntry({ entryID, currentData, updateProjects }: Props) {
         />
       </div>
       <div className={'w-full h-fit'}>
-        <label htmlFor='input__description'>Live Link:</label>
+        <label htmlFor='input__description'>Description:</label>
         <br />
         <textarea
           className={'w-full h-fit'}
