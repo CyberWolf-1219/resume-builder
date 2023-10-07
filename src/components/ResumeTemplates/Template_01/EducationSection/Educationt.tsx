@@ -8,14 +8,14 @@ interface Props {
 
 function Education({ educationData }: Props) {
   return (
-    <li className={'list-disc marker:w-[5px]'}>
+    <li className={''}>
       <div>
         <p className={'mb-[0.5em] text-[1.1em] leading-[100%]'}>
           <small>{educationData.institute}</small>
           <br />
           <strong>{educationData.degree}</strong>
         </p>
-        <ul className={''}>
+        <ul className={'columns-1 list-disc list-outside '}>
           {educationData.highlights.map((bulletpoint, i) => {
             return (
               <Bulletpoint

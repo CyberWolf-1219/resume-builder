@@ -6,8 +6,8 @@ function WorkExperienceSection() {
   const { data } = useContext(FormDataContext);
 
   return (
-    <tr className={'w-full h-fit mb-[1em] text-left align-text-top'}>
-      <td className={'w-[30%] align-text-top text-left'}>
+    <tr className={'w-full h-fit text-left align-top'}>
+      <td className={'w-[30%] align-top text-left'}>
         <h2>Work Experience</h2>
       </td>
       <td className={'w-full pl-[1em] align-top text-left'}>

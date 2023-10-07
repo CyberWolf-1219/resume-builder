@@ -8,7 +8,7 @@ interface Props {
 
 function WorkExperience({ workExp }: Props) {
   return (
-    <li className={'list-disc'}>
+    <li className={''}>
       <div>
         <p className={'mb-[0.5em] text-[1.1em] leading-[100%]'}>
           <small>{workExp.workplace}</small>

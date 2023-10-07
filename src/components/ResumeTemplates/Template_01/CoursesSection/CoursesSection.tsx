@@ -6,7 +6,7 @@ function CoursesSection() {
   const { data } = useContext(FormDataContext);
 
   return (
-    <tr className={'w-full h-fit'}>
+    <tr className={'w-full h-fit '}>
       <td className={'align-top text-left'}>
         <h2>Courses</h2>
       </td>

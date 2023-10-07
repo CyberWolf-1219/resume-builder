@@ -1,20 +1,55 @@
-.settings {
-    font-size: 36px;
+@media screen {
 
+    .settings {
+        font-size: 11pt;
+        --heading-font-size: 13pt;
+        --heading-font-weight: 600;
+    }
+
+    .settings h1,
+    h2,
+    h3 {
+        line-height: 1;
+    }
+
+    .settings h1 {
+        font-size: var(--heading-font-size);
+        font-weight: var(--heading-font-weight);
+    }
+
+    .settings h2 {
+        font-size: var(--heading-font-size);
+        font-weight: var(--heading-font-weight);
+
+    }
+
+    .settings h3 {
+        font-size: var(--heading-font-size);
+        font-weight: var(--heading-font-weight);
+    }
 }
 
-.settings h1 {
-    font-size: 1.8em;
-    font-weight: 800;
-}
+@media print {
+    .settings {
+        font-size: 11pt;
+        --heading-font-size: 13pt;
+        --heading-font-weight: 550;
 
-.settings h2 {
-    font-size: 1.5em;
-    font-weight: 800;
+    }
 
-}
+    .settings h1 {
+        font-size: var(--heading-font-size);
+        font-weight: var(--heading-font-weight);
+    }
 
-.settings h3 {
-    font-size: 1.2em;
-    font-weight: 600;
+    .settings h2 {
+        font-size: var(--heading-font-size);
+        font-weight: var(--heading-font-weight);
+
+    }
+
+    .settings h3 {
+        font-size: var(--heading-font-size);
+        font-weight: var(--heading-font-weight);
+    }
 }

@@ -5,17 +5,17 @@ function PersuationSection() {
   const { data } = useContext(FormDataContext);
 
   return (
-    <tr className={'w-full h-fit mb-[1em] text-left align-text-top'}>
+    <tr className={'w-full h-fit text-left align-top '}>
       <td className={'w-[30%]'}>
         <h2 className={'leading-[1.2]'}>Professional Statement</h2>
       </td>
-      <td className={'w-full'}>
+      <td className={'w-full pl-[1em]'}>
         <p>
-          <span className={'underline font-semibold text-[1.2em]'}>
+          <strong className={'underline underline-offset-[8px] text-[1.2em]'}>
             {data.jobInformation.position}
-          </span>
+          </strong>
           <br />
-          {data.jobInformation.qualificationExplanation}
+          {data.jobInformation.qualificationExplanation.slice(0, 500)}
         </p>
       </td>
     </tr>

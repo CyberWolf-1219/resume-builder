@@ -19,28 +19,43 @@ function Template_01({ reference }: Props) {
   return (
     <div
       ref={reference}
-      className={`${css.settings} origin-center aspect-[210/297] w-full min-w-[2480px] h-auto mx-auto px-[72px] py-[48px] bg-white text-black`}>
+      className={`${css.settings} origin-center aspect-[210/297] w-[210mm] print:w-screen h-auto max-h-[297mm] print:max-h-fit mx-auto px-[3%] py-[5%] print:p-[0] bg-white text-black`}>
       <PersonalInfoSection />
-      <hr className={'my-[1rem]'} />
-      <table
-        className={`${css.table} w-full h-fit table-fixed border-separate border-spacing-[1rem]`}>
-        <tbody>
+      <hr className={'my-[0.5em] border-[0.125em]'} />
+      <table className={`${css.table} w-full h-fit table-fixed`}>
+        <tbody className={''}>
           <ErrorBoundry>
             <WorkExperienceSection />
           </ErrorBoundry>
-
+          <tr>
+            <td colSpan={2}>
+              <hr className={'my-[0.5em] border-[0.125em] '} />
+            </td>
+          </tr>
           <ErrorBoundry>
             <ProjectsSection />
           </ErrorBoundry>
-
+          <tr>
+            <td colSpan={2}>
+              <hr className={'my-[0.5em] border-[0.125em] '} />
+            </td>
+          </tr>
           <ErrorBoundry>
             <SkillsSection />
           </ErrorBoundry>
-
+          <tr>
+            <td colSpan={2}>
+              <hr className={'my-[0.5em] border-[0.125em] '} />
+            </td>
+          </tr>
           <ErrorBoundry>
             <EducationSection />
           </ErrorBoundry>
-
+          <tr>
+            <td colSpan={2}>
+              <hr className={'my-[0.5em] border-[0.125em] '} />
+            </td>
+          </tr>
           {/* <ErrorBoundry>
             <CoursesSection />
           </ErrorBoundry> */}
@@ -48,7 +63,11 @@ function Template_01({ reference }: Props) {
           <ErrorBoundry>
             <ProfileSection />
           </ErrorBoundry>
-
+          <tr>
+            <td colSpan={2}>
+              <hr className={'my-[0.5em] border-[0.125em] '} />
+            </td>
+          </tr>
           <ErrorBoundry>
             <PersuationSection />
           </ErrorBoundry>

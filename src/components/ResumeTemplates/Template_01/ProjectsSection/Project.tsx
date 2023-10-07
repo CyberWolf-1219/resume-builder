@@ -1,6 +1,4 @@
 import React from 'react';
-import TechStack from './TechStack';
-import Bulletpoints from './Bulletpoints';
 import { Project } from '../../../../types';
 
 interface Props {
@@ -9,7 +7,7 @@ interface Props {
 
 function Project({ project }: Props) {
   return (
-    <li className={'list-disc'}>
+    <li className={''}>
       <div className={'flex flex-col items-start justify-start gap-[0.5rem]'}>
         <p>
           <strong>{project.name}</strong>
@@ -18,8 +16,7 @@ function Project({ project }: Props) {
           &nbsp;|&nbsp;
           <a href={project.liveLink}>Live Link</a>
         </p>
-        <TechStack techStack={project.techStack} />
-        <Bulletpoints bulletpoints={project.challenges} />
+        <p>{project.description}</p>
       </div>
     </li>
   );

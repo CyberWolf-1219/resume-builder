@@ -1,0 +1,17 @@
+.contact_info_list {
+    list-style-position: inside;
+}
+
+.contact_info_list li::marker {
+    content: '💠 ';
+    font-size: 1em;
+}
+
+.socialmedia_link_list {
+    list-style-position: inside;
+}
+
+.socialmedia_link_list li::marker {
+    content: "🌐 ";
+    font-size: 1em;
+}

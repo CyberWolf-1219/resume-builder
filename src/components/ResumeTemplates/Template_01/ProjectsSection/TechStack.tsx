@@ -7,7 +7,7 @@ interface Props {
 
 function TechStack({ techStack }: Props) {
   return (
-    <ul className={'columns-3'}>
+    <ul className={'mb-[1rem] columns-4'}>
       {techStack.map((tech, i) => {
         return <li key={`tech_${i}_${Math.random()}`}>{tech}</li>;
       })}
