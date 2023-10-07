@@ -28,8 +28,6 @@ function TemplatePreviewer({ template }: Props) {
       }
     });
 
-    alert('ALT + MOUSE WHEEL to Zoom');
-
     return () => {
       document.removeEventListener('wheel', () => {});
     };
