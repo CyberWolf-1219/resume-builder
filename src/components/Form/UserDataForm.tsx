@@ -7,8 +7,13 @@ import WorkExperienceSection from './WorkExperienceSection/WorkExperienceSection
 import SkillsSection from './SkillSection/SkillsSection';
 import Profile from './ProfileSection/ProfileSection';
 import ProjectsSection from './ProjectsSection/ProjectsSection';
+import { UIEvent } from 'react';
 
-function UserDataForm() {
+interface Props {
+  onFormSubmit: (e: UIEvent) => void;
+}
+
+function UserDataForm({ onFormSubmit }: Props) {
   return (
     <form
       className={`w-full max-w-full h-fit p-[1rem] flex flex-col items-stretch justify-start gap-[2rem] bg-slate-100 text-slate-950 text-left`}>
@@ -34,7 +39,7 @@ function UserDataForm() {
         <Profile />
       </ErrorBoundry>
       <Button
-        action={() => {}}
+        action={onFormSubmit}
         type={'SECONDARY'}>
         Bake My Resume
       </Button>
