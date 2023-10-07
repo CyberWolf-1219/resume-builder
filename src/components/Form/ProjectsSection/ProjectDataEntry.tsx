@@ -6,24 +6,20 @@ import React, {
   useState,
 } from 'react';
 import { Project } from '../../../types';
-import ItemListInput from '../ItemListInput/ItemListInput';
 
 interface Props {
   entryID: number;
+  currentData: Project;
   updateProjects: React.Dispatch<SetStateAction<Project[]>>;
 }
 
-function ProjectDataEntry({ entryID, updateProjects }: Props) {
-  const [projectData, updateProjectData] = useState<Project>({
-    name: '',
-    repoLink: '',
-    liveLink: '',
-    techStack: [],
-    challenges: [],
-  });
-
+function ProjectDataEntry({ entryID, currentData, updateProjects }: Props) {
+  // COMPONENT STATE ===========================================================
+  const [projectData, updateProjectData] = useState<Project>(currentData);
   const timeout = useRef<number>();
+  // ===========================================================================
 
+  // UPDATE CONTEXT STATE ======================================================
   useEffect(() => {
     updateProjects((prevArray) => {
       const newArray = [...prevArray];
@@ -35,7 +31,9 @@ function ProjectDataEntry({ entryID, updateProjects }: Props) {
       null;
     };
   }, [projectData]);
+  // ===========================================================================
 
+  // FUNCTIONS =================================================================
   function onNameInput(e: ChangeEvent<HTMLInputElement>) {
     e.preventDefault();
     const value = (e.currentTarget as HTMLInputElement).value;
@@ -87,21 +85,24 @@ function ProjectDataEntry({ entryID, updateProjects }: Props) {
     }, 250);
   }
 
-  function onTechPush(techstack: string[]) {
-    updateProjectData((prevData) => {
-      const newData = { ...prevData };
-      newData.techStack = techstack;
-      return newData;
-    });
-  }
+  function onDesciptionChange(e: ChangeEvent<HTMLTextAreaElement>) {
+    e.preventDefault();
 
-  function onChallengePush(challenges: string[]) {
-    updateProjectData((prevData) => {
-      const newData = { ...prevData };
-      newData.challenges = challenges;
-      return newData;
-    });
+    const value = (e.currentTarget as HTMLTextAreaElement).value;
+
+    if (timeout.current) {
+      clearTimeout(timeout.current);
+    }
+
+    timeout.current = setTimeout(() => {
+      updateProjectData((prevData) => {
+        const newData = { ...prevData };
+        newData.description = value;
+        return newData;
+      });
+    }, 250);
   }
+  // ===========================================================================
 
   return (
     <div
@@ -138,14 +139,15 @@ function ProjectDataEntry({ entryID, updateProjects }: Props) {
           id='input__live_link'
         />
       </div>
-      <ItemListInput
-        title={'Techstack (8)'}
-        onItemAdd={onTechPush}
-      />
-      <ItemListInput
-        title={'Challenges (3)'}
-        onItemAdd={onChallengePush}
-      />
+      <div className={'w-full h-fit'}>
+        <label htmlFor='input__description'>Live Link:</label>
+        <br />
+        <textarea
+          className={'w-full h-fit'}
+          onChange={onDesciptionChange}
+          id='input__description'
+        />
+      </div>
     </div>
   );
 }
