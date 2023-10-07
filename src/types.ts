@@ -25,7 +25,7 @@ export type Project = {
     name: string;
     repoLink: string;
     liveLink: string;
-    techStack: string[];
+    // techStack: string[];
     description: string;
 }
 
