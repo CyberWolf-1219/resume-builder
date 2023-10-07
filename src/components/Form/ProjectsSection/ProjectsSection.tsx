@@ -11,31 +11,53 @@ import { FormDataContext } from '../../../contexts/contexts';
 import ProjectDataEntry from './ProjectDataEntry';
 
 function ProjectsSection() {
-  const { updateFormData } = useContext(FormDataContext);
-  const [projects, setProjects] = useState<Project[]>([]);
-  const [projectDataEntries, setProjectDataEntries] = useState<ReactElement[]>([
-    <ProjectDataEntry
-      key={`ed_data_entry_${Math.random()}`}
-      entryID={0}
-      updateProjects={setProjects}
-    />,
-  ]);
+  // COMPONENT STATE ===========================================================
+  const { data, updateFormData } = useContext(FormDataContext);
+  const [projects, setProjects] = useState<Project[]>(data.projects);
+  const projectDataEntriesForCurrentData = data.projects.map((data, i) => {
+    return (
+      <ProjectDataEntry
+        key={`ed_data_entry_${Math.random()}`}
+        entryID={i}
+        currentData={data}
+        updateProjects={setProjects}
+      />
+    );
+  });
+  const [projectDataEntries, setProjectDataEntries] = useState<ReactElement[]>(
+    projectDataEntriesForCurrentData
+  );
+  // ===========================================================================
 
+  // UPDATE CONTEXT DATA =======================================================
   useEffect(() => {
     updateFormData({ projects: projects });
   }, [projects]);
+  // ===========================================================================
 
+  // BUTTON FUNCTIONS ==========================================================
   const addOneMoreField = (e: UIEvent) => {
     e.preventDefault();
+
     if (projectDataEntries.length >= 3) {
       return;
     }
+
     setProjectDataEntries((prevVal) => {
+      const data = {
+        description: '',
+        liveLink: '',
+        name: '',
+        repoLink: '',
+        techStack: [],
+      };
+
       return [
         ...prevVal,
         <ProjectDataEntry
           key={`ed_data_entry_${Math.random()}`}
           entryID={projectDataEntries.length}
+          currentData={data}
           updateProjects={setProjects}
         />,
       ];
@@ -54,6 +76,7 @@ function ProjectsSection() {
       return newArray;
     });
   };
+  // ===========================================================================
 
   return (
     <fieldset

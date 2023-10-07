@@ -2,11 +2,13 @@ import { useEffect, useState, useContext, ChangeEvent, useRef } from 'react';
 import { FormDataContext } from '../../../contexts/contexts';
 
 function ProfileSection() {
-  const { updateFormData } = useContext(FormDataContext);
-  const [profile, updateProfile] = useState('');
-
+  // COMPONENT STATE ===========================================================
+  const { data, updateFormData } = useContext(FormDataContext);
+  const [profile, updateProfile] = useState(data.profile);
   const timeout = useRef<number>();
+  // ===========================================================================
 
+  // UPDATE CONTEXT STATE ======================================================
   useEffect(() => {
     updateFormData({ profile: profile });
 
@@ -14,7 +16,9 @@ function ProfileSection() {
       null;
     };
   }, [profile]);
+  // ===========================================================================
 
+  // FUNCTIONS =================================================================
   function onPersonalStatementInput(e: ChangeEvent<HTMLTextAreaElement>) {
     e.preventDefault();
     const value = (e.currentTarget as HTMLTextAreaElement).value;
@@ -27,6 +31,7 @@ function ProfileSection() {
       updateProfile(value);
     }, 250);
   }
+  // ===========================================================================
 
   return (
     <fieldset
@@ -48,7 +53,7 @@ function ProfileSection() {
           cols={60}
           rows={15}
           maxLength={500}
-          defaultValue={profile}></textarea>
+          defaultValue={data.profile}></textarea>
       </div>
     </fieldset>
   );

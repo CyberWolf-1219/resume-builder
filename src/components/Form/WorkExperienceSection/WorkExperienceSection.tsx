@@ -5,18 +5,27 @@ import { FormDataContext } from '../../../contexts/contexts';
 import { WorkExp } from '../../../types';
 
 function WorkExperienceSection() {
-  const { updateFormData } = useContext(FormDataContext);
+  // COMPONENT STATE ===========================================================
+  const { data, updateFormData } = useContext(FormDataContext);
   const [workExperienceDataArray, setWorkExperienceDataArray] = useState<
     WorkExp[]
-  >([]);
-  const [workExpEntries, setWorkExpEntries] = useState([
-    <WorkExperienceEntry
-      key={`ed_data_entry_${Math.random()}`}
-      entryID={0}
-      updateWorkExpArray={setWorkExperienceDataArray}
-    />,
-  ]);
+  >(data.workExperience);
 
+  const workDataEntriesForCurrentData = data.workExperience.map((data, i) => {
+    return (
+      <WorkExperienceEntry
+        entryID={i}
+        updateWorkExpArray={setWorkExperienceDataArray}
+      />
+    );
+  });
+
+  const [workExpEntries, setWorkExpEntries] = useState(
+    workDataEntriesForCurrentData
+  );
+  // ===========================================================================
+
+  // UPDATE CONTEXT DATA =======================================================
   useEffect(() => {
     updateFormData({ workExperience: workExperienceDataArray });
 
@@ -24,7 +33,9 @@ function WorkExperienceSection() {
       null;
     };
   }, [workExperienceDataArray]);
+  // ===========================================================================
 
+  // BUTTON FUNCTIONS ==========================================================
   const addOneMoreField = (e: UIEvent) => {
     e.preventDefault();
     if (workExpEntries.length >= 3) {
@@ -54,6 +65,7 @@ function WorkExperienceSection() {
       return newArray;
     });
   };
+  // ===========================================================================
 
   return (
     <fieldset

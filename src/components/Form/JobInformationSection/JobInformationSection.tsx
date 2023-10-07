@@ -10,7 +10,7 @@ import { JobInformation } from '../../../types';
 import { FormDataContext } from '../../../contexts/contexts';
 
 function JobInformationSection() {
-  const { updateFormData } = useContext(FormDataContext);
+  const { data, updateFormData } = useContext(FormDataContext);
 
   const [jobInformation, updateJobInformation] = useState<JobInformation>({
     position: '',
@@ -78,6 +78,7 @@ function JobInformationSection() {
           type='text'
           name='position'
           id='input_position'
+          defaultValue={data.jobInformation.position}
         />
       </div>
       <div className={'w-full h-fit'}>
@@ -93,7 +94,10 @@ function JobInformationSection() {
           id='input_qualification'
           maxLength={500}
           cols={50}
-          rows={8}></textarea>
+          rows={8}
+          defaultValue={
+            data.jobInformation.qualificationExplanation
+          }></textarea>
       </div>
     </fieldset>
   );

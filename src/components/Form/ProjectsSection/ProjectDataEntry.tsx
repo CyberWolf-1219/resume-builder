@@ -117,6 +117,7 @@ function ProjectDataEntry({ entryID, currentData, updateProjects }: Props) {
           onChange={onNameInput}
           type='text'
           id='input__project_name'
+          defaultValue={projectData.name}
         />
       </div>
       <div className={'w-full h-fit'}>
@@ -127,6 +128,7 @@ function ProjectDataEntry({ entryID, currentData, updateProjects }: Props) {
           onChange={onGithubLinkInput}
           type='url'
           id='input__github_link'
+          defaultValue={projectData.repoLink}
         />
       </div>
       <div className={'w-full h-fit'}>
@@ -137,6 +139,7 @@ function ProjectDataEntry({ entryID, currentData, updateProjects }: Props) {
           onChange={onLiveLinkInput}
           type='url'
           id='input__live_link'
+          defaultValue={projectData.liveLink}
         />
       </div>
       <div className={'w-full h-fit'}>
@@ -146,6 +149,7 @@ function ProjectDataEntry({ entryID, currentData, updateProjects }: Props) {
           className={'w-full h-fit'}
           onChange={onDesciptionChange}
           id='input__description'
+          defaultValue={projectData.description}
         />
       </div>
     </div>

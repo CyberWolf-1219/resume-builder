@@ -4,27 +4,20 @@ import { PersonalInformation } from '../../../types';
 import { FormDataContext } from '../../../contexts/contexts';
 
 function PersonalInformationSection() {
-  const { updateFormData } = useContext(FormDataContext);
-
+  // COMPONENT STATE ===========================================================
+  const { data, updateFormData } = useContext(FormDataContext);
   const [personalInformation, updatePersonalInformation] =
-    useState<PersonalInformation>({
-      userName: '',
-      mobile: '',
-      email: '',
-      address: {
-        city: '',
-        country: '',
-      },
-      githubLink: '',
-      linkedInLink: '',
-    });
-
+    useState<PersonalInformation>(data.personalInformation);
   const timeout = useRef<number>();
+  // ===========================================================================
 
+  // UPDATE CONTEXT STATE ======================================================
   useEffect(() => {
     updateFormData({ personalInformation: personalInformation });
   }, [personalInformation]);
+  // ===========================================================================
 
+  // FUNCTIONS +++==============================================================
   const onNameInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     console.log(`[i] NAME => SETTING TIME OUT`);
     e.preventDefault();
@@ -111,6 +104,7 @@ function PersonalInformationSection() {
       });
     }, 250);
   };
+  // ===========================================================================
 
   return (
     <fieldset
@@ -155,6 +149,7 @@ function PersonalInformationSection() {
           type='text'
           name='user_name'
           id='input_user_name'
+          defaultValue={personalInformation.userName}
         />
       </div>
 
@@ -169,6 +164,7 @@ function PersonalInformationSection() {
           name='country'
           id='input_country'
           list={'countries-list'}
+          defaultValue={personalInformation.address.country}
         />
       </div>
       <div className={'w-full h-fit'}>
@@ -182,6 +178,7 @@ function PersonalInformationSection() {
           name='city'
           id='input_city'
           list={'cities-list'}
+          defaultValue={personalInformation.address.city}
         />
       </div>
       <div className={'w-full h-fit'}>
@@ -194,6 +191,7 @@ function PersonalInformationSection() {
           type='tel'
           name='telephone'
           id='input_telephone'
+          defaultValue={personalInformation.mobile}
         />
       </div>
       <div className={'w-full h-fit'}>
@@ -206,6 +204,7 @@ function PersonalInformationSection() {
           type='email'
           name='email'
           id='input_email'
+          defaultValue={personalInformation.email}
         />
       </div>
     </fieldset>

@@ -3,11 +3,12 @@ import ItemPill from './ItemPill';
 
 interface Props {
   title: string;
+  currentItems: string[];
   onItemAdd: (items: string[]) => void;
 }
 
-function ItemListInput({ title, onItemAdd }: Props) {
-  const [items, setItems] = useState<string[]>([]);
+function ItemListInput({ title, currentItems, onItemAdd }: Props) {
+  const [items, setItems] = useState<string[]>(currentItems);
 
   useEffect(() => {
     onItemAdd(items);
@@ -41,7 +42,7 @@ function ItemListInput({ title, onItemAdd }: Props) {
 
   return (
     <div className={'w-full h-fit'}>
-      <label htmlFor='input__challenge'>{title}:</label>
+      <label htmlFor='input__item'>{title}:</label>
       <br />
       <div
         className={
@@ -62,7 +63,7 @@ function ItemListInput({ title, onItemAdd }: Props) {
         className={'w-full h-fit'}
         onKeyDown={pushItem}
         type='text'
-        id='input__challenge'
+        id='input__item'
       />
     </div>
   );

@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { UIEvent } from 'react';
 import UserDataForm from '../../Form/UserDataForm';
 
-function FormContainer() {
+interface Props {
+  onFormSubmit: (e: UIEvent) => void;
+}
+
+function FormContainer({ onFormSubmit }: Props) {
   return (
     <div
       className={`w-full max-w-[40%] max-h-full overflow-auto border-[2px] border-white/80 rounded-sm`}>
-      <UserDataForm />
+      <UserDataForm onFormSubmit={onFormSubmit} />
     </div>
   );
 }

@@ -5,22 +5,34 @@ import { EducationInfo } from '../../../types';
 import { FormDataContext } from '../../../contexts/contexts';
 
 function EducationInformationSection() {
-  const { updateFormData } = useContext(FormDataContext);
+  // COMPONENT STATE ===========================================================
+  const { data, updateFormData } = useContext(FormDataContext);
   const [educationDataArray, setEducationDataArray] = useState<EducationInfo[]>(
-    []
+    data.educationInformation
   );
-  const [edDataEntries, setEdDataEntries] = useState<ReactElement[]>([
-    <EducationDataEntry
-      key={`ed_data_entry_${Math.random()}`}
-      entryID={0}
-      updateEducationDataArray={setEducationDataArray}
-    />,
-  ]);
+  const edDataEntriesForCurrentData = data.educationInformation.map(
+    (edData, i) => {
+      return (
+        <EducationDataEntry
+          key={`ed_data_entry_${Math.random()}`}
+          entryID={i}
+          updateEducationDataArray={setEducationDataArray}
+        />
+      );
+    }
+  );
+  const [edDataEntries, setEdDataEntries] = useState<ReactElement[]>(
+    edDataEntriesForCurrentData
+  );
+  // ===========================================================================
 
+  // UPDATE CONTEXT STATE ======================================================
   useEffect(() => {
     updateFormData({ educationInformation: educationDataArray });
   }, [educationDataArray]);
+  // ===========================================================================
 
+  // BUTTON FUNCTIONS ==========================================================
   const addOneMoreField = (e: UIEvent) => {
     e.preventDefault();
     if (edDataEntries.length >= 3) {
@@ -50,6 +62,7 @@ function EducationInformationSection() {
       return newArray;
     });
   };
+  // ===========================================================================
 
   return (
     <fieldset

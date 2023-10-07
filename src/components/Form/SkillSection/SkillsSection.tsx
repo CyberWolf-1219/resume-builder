@@ -3,11 +3,17 @@ import { FormDataContext } from '../../../contexts/contexts';
 import ItemListInput from '../ItemListInput/ItemListInput';
 
 function SkillsSection() {
-  const { updateFormData } = useContext(FormDataContext);
+  // COMPONENT STATE ==========================================================
+  const { data, updateFormData } = useContext(FormDataContext);
+  const [hardSkills, setHardSkills] = useState<string[]>(
+    data.skills.hardSkills
+  );
+  const [softSkills, setSoftSkills] = useState<string[]>(
+    data.skills.softSkills
+  );
+  // ===========================================================================
 
-  const [hardSkills, setHardSkills] = useState<string[]>([]);
-  const [softSkills, setSoftSkills] = useState<string[]>([]);
-
+  // UPDATE CONTEXT DATA =======================================================
   useEffect(() => {
     updateFormData({
       skills: { hardSkills: hardSkills, softSkills: softSkills },
@@ -17,7 +23,9 @@ function SkillsSection() {
       null;
     };
   }, [hardSkills, softSkills]);
+  // ===========================================================================
 
+  // BUTTON FUNCTIONS ==========================================================
   function onHardSkillEnter(skillsList: string[]) {
     setHardSkills(skillsList);
   }
@@ -25,6 +33,7 @@ function SkillsSection() {
   function onSoftSkillEnter(skillList: string[]) {
     setSoftSkills(skillList);
   }
+  // ===========================================================================
 
   return (
     <fieldset
@@ -35,11 +44,13 @@ function SkillsSection() {
       {/* ADD FILED SET TO ENTER HARD SKILLS */}
       <ItemListInput
         title={'Hard Skills'}
+        currentItems={hardSkills}
         onItemAdd={onHardSkillEnter}
       />
       {/* ADD FIELDSET TO ENTER SOFT SKILLS */}
       <ItemListInput
         title={'Soft Skills'}
+        currentItems={softSkills}
         onItemAdd={onSoftSkillEnter}
       />
     </fieldset>
