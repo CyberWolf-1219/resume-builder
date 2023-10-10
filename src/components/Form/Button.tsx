@@ -1,8 +1,8 @@
 import React, { ReactNode, UIEvent } from 'react';
 
 const BUTTON_TYPE = {
-  PRIMARY: 'bg-blue-900 border-transparent',
-  SECONDARY: 'bg-transparent border-blue-900',
+  PRIMARY: 'text-white bg-accent/80 border-transparent hover:bg-accent/100',
+  SECONDARY: 'text-accent bg-transparent border-accent hover:text-accent',
 };
 
 interface Props {
@@ -16,7 +16,7 @@ function Button({ children, action, type }: Props) {
     <button
       autoFocus={false}
       onClick={action}
-      className={`w-full h-fit px-[1.5rem] pt-[0.6rem] pb-[0.75rem] rounded-md border-[2px] ${BUTTON_TYPE[type]}`}>
+      className={`w-full h-fit px-[1.4em] pt-[0.5em] pb-[0.55em] font-semibold rounded-md border-[2px] transition-colors duration-[300ms] leading-[1] ${BUTTON_TYPE[type]}`}>
       {children}
     </button>
   );
