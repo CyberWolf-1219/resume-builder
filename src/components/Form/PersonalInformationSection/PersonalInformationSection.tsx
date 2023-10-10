@@ -107,10 +107,7 @@ function PersonalInformationSection() {
   // ===========================================================================
 
   return (
-    <fieldset
-      className={
-        'w-full h-fit p-[1rem] flex flex-col gap-[0.5rem] border-[2px] border-gray-900 rounded-[8px]'
-      }>
+    <fieldset className={'w-full h-fit p-[1rem] flex flex-col gap-[0.5rem]'}>
       <legend>Personal Information</legend>
 
       <datalist id={'countries-list'}>

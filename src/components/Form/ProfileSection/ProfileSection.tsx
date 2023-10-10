@@ -36,7 +36,7 @@ function ProfileSection() {
   return (
     <fieldset
       className={
-        'w-full h-fit p-[1rem] flex flex-col items-stretch justify-start gap-[1rem] border-[2px] border-blue-950 rounded-[8px]'
+        'w-full h-fit p-[1rem] flex flex-col items-stretch justify-start gap-[1rem] '
       }>
       <legend>Sell Yourself</legend>
       <div className={'w-full h-fit'}>

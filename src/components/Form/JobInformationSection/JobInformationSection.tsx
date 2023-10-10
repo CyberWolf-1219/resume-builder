@@ -65,7 +65,7 @@ function JobInformationSection() {
   return (
     <fieldset
       className={
-        'w-full h-fit p-[1rem] flex flex-col items-stretch justify-start gap-[0.5rem] border-[2px] border-blue-950 rounded-[8px]'
+        'w-full h-fit p-[1rem] flex flex-col items-stretch justify-start gap-[0.5rem] '
       }>
       <legend>Job Information</legend>
       <div className={'w-full h-fit'}>
