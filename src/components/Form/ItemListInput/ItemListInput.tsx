@@ -46,7 +46,7 @@ function ItemListInput({ title, currentItems, onItemAdd }: Props) {
       <br />
       <div
         className={
-          'w-full min-h-[3.7rem] h-fit mb-[0.5rem] px-[0.5rem] py-[0.5rem] flex flex-row items-center justify-start flex-wrap gap-[0.5rem] bg-black/50 border-[2px] border-white/80'
+          'item-box w-full  h-fit mb-[0.5rem] px-[0.5rem] py-[0.5rem] flex flex-row items-center justify-start flex-wrap gap-[0.5rem]'
         }>
         {items.map((item, i) => {
           return (
