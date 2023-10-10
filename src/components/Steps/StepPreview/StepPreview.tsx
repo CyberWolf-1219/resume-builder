@@ -1,7 +1,7 @@
 import React, { useRef, ElementType, UIEvent } from 'react';
-import { Resume_Templates } from '../ResumeTemplates';
-import TemplatePreviewer from '../TemplatePreviewer';
-import Button from '../Form/Button';
+import { Resume_Templates } from '../../ResumeTemplates';
+import TemplatePreviewer from '../../TemplatePreviewer';
+import Button from '../../Form/Button';
 
 interface Props {
   resumeIndexNumber: number;
@@ -26,7 +26,7 @@ function StepPreview({ resumeIndexNumber, goToPrevStep }: Props) {
         <Button
           type={'PRIMARY'}
           action={() => {}}>
-          Downlad Resume
+          Download Resume
         </Button>
       </div>
     </div>

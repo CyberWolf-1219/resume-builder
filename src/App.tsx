@@ -3,7 +3,7 @@ import './App.css';
 
 import ErrorBoundry from './components/ErrorBoundry';
 import StepDataEntry from './components/Steps/StepDataEntry/StepDataEntry';
-import StepPreview from './components/Steps/StepPreview';
+import StepPreview from './components/Steps/StepPreview/StepPreview';
 
 export function App() {
   const [step, setStep] = useState(0);
