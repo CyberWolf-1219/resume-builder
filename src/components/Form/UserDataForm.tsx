@@ -16,7 +16,7 @@ interface Props {
 function UserDataForm({ onFormSubmit }: Props) {
   return (
     <form
-      className={`w-full max-w-full h-fit p-[1rem] flex flex-col items-stretch justify-start gap-[2rem] bg-slate-100 text-slate-950 text-left`}>
+      className={`w-full max-w-full h-fit p-[1rem] flex flex-col items-stretch justify-start gap-[2rem] text-left font-[Dosis]`}>
       <ErrorBoundry>
         <PersonalInformationSection />
       </ErrorBoundry>
@@ -40,7 +40,7 @@ function UserDataForm({ onFormSubmit }: Props) {
       </ErrorBoundry>
       <Button
         action={onFormSubmit}
-        type={'SECONDARY'}>
+        type={'PRIMARY'}>
         Bake My Resume
       </Button>
     </form>
