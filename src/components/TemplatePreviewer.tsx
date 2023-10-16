@@ -35,11 +35,11 @@ function TemplatePreviewer({ template }: Props) {
 
   return (
     <>
-      <div className={'print:hidden'}>
+      <div className={'print:hidden w-full h-full'}>
         <div
           ref={zoomPanel}
-          style={{ scale: '0.6' }}
-          className={'relative'}>
+          style={{ scale: '1' }}
+          className={'relative w-full h-full'}>
           <div
             className={
               'absolute index-0 top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-fit h-fit'
@@ -48,7 +48,7 @@ function TemplatePreviewer({ template }: Props) {
           </div>
         </div>
       </div>
-      <div className={'hidden print:block'}>{template}</div>
+      <div className={'hidden print:block w-fit h-fit mx-auto'}>{template}</div>
     </>
   );
 }
