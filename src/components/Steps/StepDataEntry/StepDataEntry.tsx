@@ -1,10 +1,10 @@
-import React, { UIEvent } from 'react';
+import React from 'react';
 
 import FormContainer from './FormContainer';
 import TemplateContainer from './TemplateContainer';
 
 interface Props {
-  onFormSubmit: (e: UIEvent) => void;
+  onFormSubmit: () => void;
   templateIndex: number;
 }
 
