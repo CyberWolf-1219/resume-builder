@@ -1,8 +1,8 @@
-import React, { UIEvent } from 'react';
+import React from 'react';
 import UserDataForm from '../../Form/UserDataForm';
 
 interface Props {
-  onFormSubmit: (e: UIEvent) => void;
+  onFormSubmit: () => void;
 }
 
 function FormContainer({ onFormSubmit }: Props) {
