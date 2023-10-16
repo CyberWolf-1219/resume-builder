@@ -10,10 +10,15 @@ import ProjectsSection from './ProjectsSection/ProjectsSection';
 import { UIEvent } from 'react';
 
 interface Props {
-  onFormSubmit: (e: UIEvent) => void;
+  onFormSubmit: () => void;
 }
 
 function UserDataForm({ onFormSubmit }: Props) {
+  function buttonClickHandler(e: UIEvent) {
+    e.preventDefault();
+    onFormSubmit();
+  }
+
   return (
     <form
       className={`w-full max-w-full h-fit p-[1rem] flex flex-col items-stretch justify-start gap-[2rem] text-left font-[Dosis]`}>
@@ -39,7 +44,7 @@ function UserDataForm({ onFormSubmit }: Props) {
         <Profile />
       </ErrorBoundry>
       <Button
-        action={onFormSubmit}
+        action={buttonClickHandler}
         type={'PRIMARY'}>
         Bake My Resume
       </Button>
