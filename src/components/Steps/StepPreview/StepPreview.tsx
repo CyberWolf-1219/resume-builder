@@ -1,22 +1,34 @@
-import React, { useRef, ElementType, UIEvent } from 'react';
-import { Resume_Templates } from '../../ResumeTemplates';
+import React, { useRef, UIEvent } from 'react';
 import TemplatePreviewer from '../../TemplatePreviewer';
 import Button from '../../Form/Button';
+import ErrorBoundry from '../../ErrorBoundry';
+import { TEMPLATE_ARRAY } from '../../ResumeTemplates/index.tsx';
 
 interface Props {
-  resumeIndexNumber: number;
-  goToPrevStep: (e: UIEvent) => void;
+  templateIndex: number;
+  goToPrevStep: () => void;
 }
 
-function StepPreview({ resumeIndexNumber, goToPrevStep }: Props) {
-  const template = useRef<ElementType>(Resume_Templates[resumeIndexNumber]);
+function StepPreview({ templateIndex, goToPrevStep }: Props) {
+  const selectedTemplate = useRef(TEMPLATE_ARRAY[templateIndex]);
+  const templateElement = useRef(null);
+
+  function buttonClickHandler(e: UIEvent) {
+    e.preventDefault();
+    window.print();
+  }
 
   return (
     <div className={'relative'}>
-      <TemplatePreviewer template={<template.current />} />
+      <ErrorBoundry>
+        <TemplatePreviewer
+          template={<selectedTemplate.current reference={templateElement} />}
+        />
+      </ErrorBoundry>
+
       <div
         className={
-          'fixed bottom-[50px] left-[50%] translate-x-[-50%] flex flex-col items-center justify-center gap-[0.5rem]'
+          'fixed print:hidden bottom-[50px] left-[50%] translate-x-[-50%] flex flex-col items-center justify-center gap-[0.5rem]'
         }>
         <Button
           type={'SECONDARY'}
@@ -25,7 +37,7 @@ function StepPreview({ resumeIndexNumber, goToPrevStep }: Props) {
         </Button>
         <Button
           type={'PRIMARY'}
-          action={() => {}}>
+          action={buttonClickHandler}>
           Download Resume
         </Button>
       </div>
