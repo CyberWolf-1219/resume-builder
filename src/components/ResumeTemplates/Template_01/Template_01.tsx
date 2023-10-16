@@ -12,7 +12,7 @@ import ErrorBoundry from '../../ErrorBoundry';
 import PersuationSection from './PersuationSection/PersuationSection';
 
 interface Props {
-  reference: React.RefObject<HTMLDivElement>;
+  reference?: React.RefObject<HTMLDivElement>;
 }
 
 function Template_01({ reference }: Props) {
