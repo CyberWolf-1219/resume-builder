@@ -4,15 +4,19 @@ import FormContainer from './FormContainer';
 import TemplateContainer from './TemplateContainer';
 
 interface Props {
-  onFormSubmit: () => void;
+  gotoPrevStep: () => void;
+  gotoNextStep: () => void;
   templateIndex: number;
 }
 
-function StepDataEntry({ onFormSubmit, templateIndex }: Props) {
+function StepDataEntry({ gotoPrevStep, gotoNextStep, templateIndex }: Props) {
   return (
     <div
       className={`w-full h-full max-h-screen mx-auto flex flex-row overflow-hidden`}>
-      <FormContainer onFormSubmit={onFormSubmit} />
+      <FormContainer
+        gotoNextStep={gotoNextStep}
+        gotoPrevStep={gotoPrevStep}
+      />
       <TemplateContainer templateIndex={templateIndex} />
     </div>
   );
