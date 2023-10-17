@@ -31,7 +31,8 @@ export function App() {
   const STEPS: ReactElement[] = [
     <StepTemplateSelection onTemplateSelect={onTemplateSelection} />,
     <StepDataEntry
-      onFormSubmit={goToNextStep}
+      gotoPrevStep={goToPrevStep}
+      gotoNextStep={goToNextStep}
       templateIndex={resumeTemplateIndex}
     />,
     <StepPreview
