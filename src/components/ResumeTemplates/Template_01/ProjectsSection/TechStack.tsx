@@ -1,8 +1,7 @@
 import React from 'react';
-import { Project } from '../../../../types';
 
 interface Props {
-  techStack: Project['techStack'];
+  techStack: string[];
 }
 
 function TechStack({ techStack }: Props) {
