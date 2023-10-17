@@ -14,6 +14,7 @@ function WorkExperienceSection() {
   const workDataEntriesForCurrentData = data.workExperience.map((data, i) => {
     return (
       <WorkExperienceEntry
+        key={`work_exp_entry_${i}_${Math.random()}`}
         entryID={i}
         updateWorkExpArray={setWorkExperienceDataArray}
       />
