@@ -2,7 +2,8 @@ import React, { ReactNode, UIEvent } from 'react';
 
 const BUTTON_TYPE = {
   PRIMARY: 'text-white bg-accent/80 border-transparent hover:bg-accent/100',
-  SECONDARY: 'text-accent bg-transparent border-accent hover:text-accent',
+  SECONDARY:
+    'text-accent/80 bg-transparent border-accent/80 hover:text-accent/100 hover:border-accent/100',
 };
 
 interface Props {
