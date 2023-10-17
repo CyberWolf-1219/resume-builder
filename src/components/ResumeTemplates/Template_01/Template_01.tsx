@@ -1,5 +1,4 @@
 import React from 'react';
-import css from './style.module.css';
 
 import SkillsSection from './SkillsSection/SkillsSection';
 import WorkExperienceSection from './WorkExperienceSection/WorkExperienceSection';
@@ -10,6 +9,7 @@ import ProjectsSection from './ProjectsSection/ProjectsSection';
 import PersonalInfoSection from './PersonalInfoSection/PersonalInfoSection';
 import ErrorBoundry from '../../ErrorBoundry';
 import PersuationSection from './PersuationSection/PersuationSection';
+import Paper from '../Paper/Paper';
 
 interface Props {
   reference?: React.RefObject<HTMLDivElement>;
@@ -17,13 +17,11 @@ interface Props {
 
 function Template_01({ reference }: Props) {
   return (
-    <div
-      ref={reference}
-      className={`${css.settings} origin-center aspect-[210/297] w-[210mm] print:w-screen h-auto max-h-[297mm] print:max-h-fit mx-auto px-[3%] py-[5%] print:p-[0] bg-white text-black`}>
+    <Paper ref={reference}>
       <PersonalInfoSection />
       <hr className={'my-[0.5em] border-[0.125em]'} />
-      <table className={`${css.table} w-full h-fit table-fixed`}>
-        <tbody className={''}>
+      <table className={'w-full h-fit table-fixed'}>
+        <tbody>
           <ErrorBoundry>
             <WorkExperienceSection />
           </ErrorBoundry>
@@ -73,7 +71,7 @@ function Template_01({ reference }: Props) {
           </ErrorBoundry>
         </tbody>
       </table>
-    </div>
+    </Paper>
   );
 }
 
