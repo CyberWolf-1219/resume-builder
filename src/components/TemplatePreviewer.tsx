@@ -38,7 +38,7 @@ function TemplatePreviewer({ template }: Props) {
       <div className={'print:hidden w-full h-full'}>
         <div
           ref={zoomPanel}
-          style={{ scale: '1' }}
+          style={{ scale: '0.6' }}
           className={'relative w-full h-full'}>
           <div
             className={
