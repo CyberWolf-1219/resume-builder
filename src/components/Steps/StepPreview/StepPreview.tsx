@@ -1,6 +1,6 @@
 import React, { useRef, UIEvent } from 'react';
 import TemplatePreviewer from '../../TemplatePreviewer';
-import Button from '../../Form/Button';
+import Button from '../../Button.tsx';
 import ErrorBoundry from '../../ErrorBoundry';
 import { TEMPLATE_ARRAY } from '../../ResumeTemplates/index.tsx';
 

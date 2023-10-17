@@ -1,6 +1,6 @@
 import { ReactElement, UIEvent, useContext, useEffect, useState } from 'react';
 import EducationDataEntry from './EducationDataEntry';
-import Button from '../Button';
+import Button from '../../Button';
 import { EducationInfo } from '../../../types';
 import { FormDataContext } from '../../../contexts/contexts';
 

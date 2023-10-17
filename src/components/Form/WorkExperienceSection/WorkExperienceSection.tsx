@@ -1,6 +1,6 @@
 import { UIEvent, useState, useContext, useEffect } from 'react';
 import WorkExperienceEntry from './WorkExperienceEntry';
-import Button from '../Button';
+import Button from '../../Button';
 import { FormDataContext } from '../../../contexts/contexts';
 import { WorkExp } from '../../../types';
 

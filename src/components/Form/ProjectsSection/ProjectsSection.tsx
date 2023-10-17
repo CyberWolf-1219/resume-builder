@@ -5,7 +5,7 @@ import React, {
   useEffect,
   useState,
 } from 'react';
-import Button from '../Button';
+import Button from '../../Button';
 import { Project } from '../../../types';
 import { FormDataContext } from '../../../contexts/contexts';
 import ProjectDataEntry from './ProjectDataEntry';
