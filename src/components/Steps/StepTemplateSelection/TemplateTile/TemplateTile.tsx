@@ -15,9 +15,10 @@ function TemplateTile({ template, tempalteIndex, selectAction }: Props) {
 
   return (
     <div className='relative aspect-[210/297] w-full h-auto group/template-tile rounded-sm overflow-hidden'>
+      {/* BUTTON PANEL */}
       <div
         className={
-          'absolute top-[0] left-[0] z-[10] w-full h-full flex flex-col items-center justify-center bg-secondary-light rounded-sm translate-y-[100%] group-hover/template-tile:translate-y-[0] duration-[250ms] delay-[500ms]'
+          'absolute top-[0] left-[0] z-[10] w-full h-full flex flex-col items-center justify-center bg-secondary-light rounded-sm translate-y-[100%] group-hover/template-tile:translate-y-[0] duration-[250ms] delay-[250ms]'
         }>
         <button
           onClick={buttonClickHandler}
@@ -27,11 +28,11 @@ function TemplateTile({ template, tempalteIndex, selectAction }: Props) {
           SELECT
         </button>
       </div>
+
+      {/* TEMPLATE WRAPPER */}
       <div
-        style={{ scale: '0.5' }}
-        className={
-          'w-fit h-fit translate-x-[-75%] translate-y-[-75%] group-hover/template-tile:scale-105 transition-transform duration-[250ms] '
-        }>
+        style={{ scale: '0.395' }}
+        className={'w-fit h-fit origin-top-left'}>
         <templateElement.current />
       </div>
     </div>
