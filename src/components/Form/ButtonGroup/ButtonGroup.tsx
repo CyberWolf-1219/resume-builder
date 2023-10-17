@@ -17,7 +17,10 @@ function ButtonGroup({ onTemplateChangeAction, onFormSubmitAction }: Props) {
   }
 
   return (
-    <div>
+    <div
+      className={
+        'w-ful h-fit flex flex-col items-stretch justify-start gap-[0.5rem]'
+      }>
       <Button
         action={templateChangeButtonhandler}
         type={'SECONDARY'}>
