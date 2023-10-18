@@ -52,7 +52,7 @@ function ProfileSection() {
           id='input__applicant_description'
           cols={60}
           rows={15}
-          maxLength={500}
+          maxLength={1000}
           defaultValue={data.profile}></textarea>
       </div>
     </fieldset>
