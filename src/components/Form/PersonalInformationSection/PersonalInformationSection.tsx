@@ -5,138 +5,125 @@ import { FormDataContext } from '../../../contexts/contexts';
 
 function PersonalInformationSection() {
   // COMPONENT STATE ===========================================================
+
   const { data, updateFormData } = useContext(FormDataContext);
   const [localPersonalInformation, updateLocalPersonalInformation] =
     useState<PersonalInformation>(data.personalInformation);
   const timeout = useRef<number>();
+
   // ===========================================================================
 
   // UPDATE CONTEXT STATE ======================================================
+
   useEffect(() => {
     updateFormData({ personalInformation: localPersonalInformation });
   }, [localPersonalInformation]);
+
   // ===========================================================================
 
-  // FUNCTIONS +++==============================================================
+  // HELPERS ===================================================================
+
+  function scheduleUpdate(callback: () => void) {
+    if (timeout.current) {
+      clearTimeout(timeout.current);
+    }
+
+    timeout.current = setTimeout(callback, 250);
+  }
+
+  // ===========================================================================
+
+  // INPUT HANDLERS ============================================================
+
   const onNameInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     console.log(`[i] NAME => SETTING TIME OUT`);
     e.preventDefault();
     const value = e.currentTarget.value;
 
-    if (timeout.current) {
-      clearTimeout(timeout.current);
-    }
-
-    timeout.current = setTimeout(() => {
+    scheduleUpdate(() => {
       updateLocalPersonalInformation((prevState) => {
         const newState = { ...prevState, userName: value };
         return newState;
       });
-    }, 250);
+    });
   };
 
   const onCityInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     const value = e.currentTarget.value;
 
-    if (timeout.current) {
-      clearTimeout(timeout.current);
-    }
-
-    timeout.current = setTimeout(() => {
+    scheduleUpdate(() => {
       updateLocalPersonalInformation((prevState) => {
         const newState = { ...prevState };
         newState.address.city = value;
         return newState;
       });
-    }, 250);
+    });
   };
 
   const onCountryInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     const value = e.currentTarget.value;
 
-    if (timeout.current) {
-      clearTimeout(timeout.current);
-    }
-
-    timeout.current = setTimeout(() => {
+    scheduleUpdate(() => {
       updateLocalPersonalInformation((prevState) => {
         const newState = { ...prevState };
         newState.address.country = value;
         return newState;
       });
-    }, 250);
+    });
   };
 
   const onTelephoneNumberInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     const value = e.currentTarget.value;
 
-    if (timeout.current) {
-      clearTimeout(timeout.current);
-    }
-
-    timeout.current = setTimeout(() => {
+    scheduleUpdate(() => {
       updateLocalPersonalInformation((prevState) => {
         const newState = { ...prevState };
         newState.mobile = value;
         return newState;
       });
-    }, 250);
+    });
   };
 
-  const onEmailInputChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => {
+  const onEmailInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     const value = e.currentTarget.value;
 
-    if (timeout.current) {
-      clearTimeout(timeout.current);
-    }
-
-    timeout.current = setTimeout(() => {
+    scheduleUpdate(() => {
       updateLocalPersonalInformation((prevState) => {
         const newState = { ...prevState };
         newState.email = value;
         return newState;
       });
-    }, 250);
+    });
   };
 
   const onLinkedinLinkInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     const value = e.currentTarget.value;
 
-    if (timeout.current) {
-      clearTimeout(timeout.current);
-    }
-
-    timeout.current = setTimeout(() => {
+    scheduleUpdate(() => {
       updateLocalPersonalInformation((prevState) => {
         const newState = { ...prevState };
         newState.linkedInLink = value;
         return newState;
       });
-    }, 250);
+    });
   };
 
   const onGithubLinkInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     const value = e.currentTarget.value;
 
-    if (timeout.current) {
-      clearTimeout(timeout.current);
-    }
-
-    timeout.current = setTimeout(() => {
+    scheduleUpdate(() => {
       updateLocalPersonalInformation((prevState) => {
         const newState = { ...prevState };
         newState.githubLink = value;
         return newState;
       });
-    }, 250);
+    });
   };
 
   // ===========================================================================
