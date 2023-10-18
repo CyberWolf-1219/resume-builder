@@ -6,15 +6,15 @@ import { FormDataContext } from '../../../contexts/contexts';
 function PersonalInformationSection() {
   // COMPONENT STATE ===========================================================
   const { data, updateFormData } = useContext(FormDataContext);
-  const [personalInformation, updatePersonalInformation] =
+  const [localPersonalInformation, updateLocalPersonalInformation] =
     useState<PersonalInformation>(data.personalInformation);
   const timeout = useRef<number>();
   // ===========================================================================
 
   // UPDATE CONTEXT STATE ======================================================
   useEffect(() => {
-    updateFormData({ personalInformation: personalInformation });
-  }, [personalInformation]);
+    updateFormData({ personalInformation: localPersonalInformation });
+  }, [localPersonalInformation]);
   // ===========================================================================
 
   // FUNCTIONS +++==============================================================
@@ -28,7 +28,7 @@ function PersonalInformationSection() {
     }
 
     timeout.current = setTimeout(() => {
-      updatePersonalInformation((prevState) => {
+      updateLocalPersonalInformation((prevState) => {
         const newState = { ...prevState, userName: value };
         return newState;
       });
@@ -44,7 +44,7 @@ function PersonalInformationSection() {
     }
 
     timeout.current = setTimeout(() => {
-      updatePersonalInformation((prevState) => {
+      updateLocalPersonalInformation((prevState) => {
         const newState = { ...prevState };
         newState.address.city = value;
         return newState;
@@ -61,7 +61,7 @@ function PersonalInformationSection() {
     }
 
     timeout.current = setTimeout(() => {
-      updatePersonalInformation((prevState) => {
+      updateLocalPersonalInformation((prevState) => {
         const newState = { ...prevState };
         newState.address.country = value;
         return newState;
@@ -78,7 +78,7 @@ function PersonalInformationSection() {
     }
 
     timeout.current = setTimeout(() => {
-      updatePersonalInformation((prevState) => {
+      updateLocalPersonalInformation((prevState) => {
         const newState = { ...prevState };
         newState.mobile = value;
         return newState;
@@ -97,13 +97,48 @@ function PersonalInformationSection() {
     }
 
     timeout.current = setTimeout(() => {
-      updatePersonalInformation((prevState) => {
+      updateLocalPersonalInformation((prevState) => {
         const newState = { ...prevState };
         newState.email = value;
         return newState;
       });
     }, 250);
   };
+
+  const onLinkedinLinkInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    const value = e.currentTarget.value;
+
+    if (timeout.current) {
+      clearTimeout(timeout.current);
+    }
+
+    timeout.current = setTimeout(() => {
+      updateLocalPersonalInformation((prevState) => {
+        const newState = { ...prevState };
+        newState.linkedInLink = value;
+        return newState;
+      });
+    }, 250);
+  };
+
+  const onGithubLinkInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    const value = e.currentTarget.value;
+
+    if (timeout.current) {
+      clearTimeout(timeout.current);
+    }
+
+    timeout.current = setTimeout(() => {
+      updateLocalPersonalInformation((prevState) => {
+        const newState = { ...prevState };
+        newState.githubLink = value;
+        return newState;
+      });
+    }, 250);
+  };
+
   // ===========================================================================
 
   return (
@@ -124,7 +159,7 @@ function PersonalInformationSection() {
 
       <datalist id='cities-list'>
         {COUNTRIES[
-          personalInformation.address.country as keyof typeof COUNTRIES
+          localPersonalInformation.address.country as keyof typeof COUNTRIES
         ]?.map((city, i) => {
           return (
             <option
@@ -146,7 +181,7 @@ function PersonalInformationSection() {
           type='text'
           name='user_name'
           id='input_user_name'
-          defaultValue={personalInformation.userName}
+          defaultValue={localPersonalInformation.userName}
         />
       </div>
 
@@ -161,9 +196,10 @@ function PersonalInformationSection() {
           name='country'
           id='input_country'
           list={'countries-list'}
-          defaultValue={personalInformation.address.country}
+          defaultValue={localPersonalInformation.address.country}
         />
       </div>
+
       <div className={'w-full h-fit'}>
         <label htmlFor='City'>City:</label>
         <br />
@@ -175,9 +211,10 @@ function PersonalInformationSection() {
           name='city'
           id='input_city'
           list={'cities-list'}
-          defaultValue={personalInformation.address.city}
+          defaultValue={localPersonalInformation.address.city}
         />
       </div>
+
       <div className={'w-full h-fit'}>
         <label htmlFor='input_telephone'>Telephone Number:</label>
         <br />
@@ -188,9 +225,10 @@ function PersonalInformationSection() {
           type='tel'
           name='telephone'
           id='input_telephone'
-          defaultValue={personalInformation.mobile}
+          defaultValue={localPersonalInformation.mobile}
         />
       </div>
+
       <div className={'w-full h-fit'}>
         <label htmlFor='input_email'>Email:</label>
         <br />
@@ -201,7 +239,35 @@ function PersonalInformationSection() {
           type='email'
           name='email'
           id='input_email'
-          defaultValue={personalInformation.email}
+          defaultValue={localPersonalInformation.email}
+        />
+      </div>
+
+      <div className={'w-full h-fit'}>
+        <label htmlFor='input_linkedin_link'>LinkedIn:</label>
+        <br />
+        <input
+          className={'w-full h-fit'}
+          onChange={onLinkedinLinkInputChange}
+          required={true}
+          type='linkedin_link'
+          name='linkedin_link'
+          id='input_linkedin_link'
+          defaultValue={localPersonalInformation.linkedInLink}
+        />
+      </div>
+
+      <div className={'w-full h-fit'}>
+        <label htmlFor='input_github_link'>Github:</label>
+        <br />
+        <input
+          className={'w-full h-fit'}
+          onChange={onGithubLinkInputChange}
+          required={true}
+          type='github_link'
+          name='github_link'
+          id='input_github_link'
+          defaultValue={localPersonalInformation.githubLink}
         />
       </div>
     </fieldset>
