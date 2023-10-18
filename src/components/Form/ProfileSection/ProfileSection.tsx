@@ -4,18 +4,18 @@ import { FormDataContext } from '../../../contexts/contexts';
 function ProfileSection() {
   // COMPONENT STATE ===========================================================
   const { data, updateFormData } = useContext(FormDataContext);
-  const [profile, updateProfile] = useState(data.profile);
+  const [localProfile, updateLocalProfile] = useState(data.profile);
   const timeout = useRef<number>();
   // ===========================================================================
 
   // UPDATE CONTEXT STATE ======================================================
   useEffect(() => {
-    updateFormData({ profile: profile });
+    updateFormData({ profile: localProfile });
 
     return () => {
       null;
     };
-  }, [profile]);
+  }, [localProfile]);
   // ===========================================================================
 
   // FUNCTIONS =================================================================
@@ -28,7 +28,7 @@ function ProfileSection() {
     }
 
     timeout.current = setTimeout(() => {
-      updateProfile(value);
+      updateLocalProfile(value);
     }, 250);
   }
   // ===========================================================================
