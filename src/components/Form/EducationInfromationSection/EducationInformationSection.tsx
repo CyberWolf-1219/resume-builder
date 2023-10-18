@@ -7,16 +7,16 @@ import { FormDataContext } from '../../../contexts/contexts';
 function EducationInformationSection() {
   // COMPONENT STATE ===========================================================
   const { data, updateFormData } = useContext(FormDataContext);
-  const [educationDataArray, setEducationDataArray] = useState<EducationInfo[]>(
-    data.educationInformation
-  );
+  const [localEducationDataArray, setLocalEducationDataArray] = useState<
+    EducationInfo[]
+  >(data.educationInformation);
   const edDataEntriesForCurrentData = data.educationInformation.map(
     (edData, i) => {
       return (
         <EducationDataEntry
           key={`ed_data_entry_${Math.random()}`}
           entryID={i}
-          updateEducationDataArray={setEducationDataArray}
+          updateEducationDataArray={setLocalEducationDataArray}
         />
       );
     }
@@ -28,23 +28,25 @@ function EducationInformationSection() {
 
   // UPDATE CONTEXT STATE ======================================================
   useEffect(() => {
-    updateFormData({ educationInformation: educationDataArray });
-  }, [educationDataArray]);
+    updateFormData({ educationInformation: localEducationDataArray });
+  }, [localEducationDataArray]);
   // ===========================================================================
 
   // BUTTON FUNCTIONS ==========================================================
   const addOneMoreField = (e: UIEvent) => {
     e.preventDefault();
+
     if (edDataEntries.length >= 3) {
       return;
     }
+
     setEdDataEntries((prevVal) => {
       return [
         ...prevVal,
         <EducationDataEntry
           key={`ed_data_entry_${Math.random()}`}
           entryID={edDataEntries.length}
-          updateEducationDataArray={setEducationDataArray}
+          updateEducationDataArray={setLocalEducationDataArray}
         />,
       ];
     });
@@ -52,13 +54,14 @@ function EducationInformationSection() {
 
   const removeOneField = (e: UIEvent) => {
     e.preventDefault();
+
     if (edDataEntries.length <= 0) {
       return;
     }
+
     setEdDataEntries((prevVal) => {
       const newArray = [...prevVal];
       newArray.pop();
-
       return newArray;
     });
   };
