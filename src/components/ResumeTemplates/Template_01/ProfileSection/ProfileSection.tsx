@@ -11,7 +11,7 @@ function ProfileSection() {
       </td>
       <td className={'w-full pl-[1em] align-top text-left'}>
         <p className={'max-w-[75em] text-[1em] leading-[1.5em]'}>
-          {data.profile.slice(0, 500)}
+          {data.profile.slice(0, 1000)}
         </p>
       </td>
     </tr>
