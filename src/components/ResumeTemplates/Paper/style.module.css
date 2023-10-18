@@ -1,8 +1,8 @@
 @media screen {
 
     .settings {
-        font-size: 11pt;
-        --heading-font-size: 13pt;
+        font-size: 10pt;
+        --heading-font-size: 11pt;
         --heading-font-weight: 500;
     }
 
@@ -31,8 +31,8 @@
 
 @media print {
     .settings {
-        font-size: 11pt;
-        --heading-font-size: 13pt;
+        font-size: 10pt;
+        --heading-font-size: 11pt;
         --heading-font-weight: 500;
 
     }
