@@ -12,16 +12,17 @@ import { FormDataContext } from '../../../contexts/contexts';
 function JobInformationSection() {
   const { data, updateFormData } = useContext(FormDataContext);
 
-  const [jobInformation, updateJobInformation] = useState<JobInformation>({
-    position: '',
-    qualificationExplanation: '',
-  });
+  const [localJobInformation, updateLocalJobInformation] =
+    useState<JobInformation>({
+      position: '',
+      qualificationExplanation: '',
+    });
 
   const timeout = useRef<number>();
 
   useEffect(() => {
-    updateFormData({ jobInformation: jobInformation });
-  }, [jobInformation]);
+    updateFormData({ jobInformation: localJobInformation });
+  }, [localJobInformation]);
 
   const onPositionInputChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
@@ -33,7 +34,7 @@ function JobInformationSection() {
       }
 
       timeout.current = setTimeout(() => {
-        updateJobInformation((prevState) => {
+        updateLocalJobInformation((prevState) => {
           const newState = { ...prevState };
           newState.position = value;
           return newState;
@@ -52,7 +53,7 @@ function JobInformationSection() {
         clearTimeout(timeout.current);
       }
       timeout.current = setTimeout(() => {
-        updateJobInformation((prevState) => {
+        updateLocalJobInformation((prevState) => {
           const newState = { ...prevState };
           newState.qualificationExplanation = value;
           return newState;
