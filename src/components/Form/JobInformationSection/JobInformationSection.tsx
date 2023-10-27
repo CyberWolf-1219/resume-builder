@@ -93,7 +93,6 @@ function JobInformationSection() {
           required={true}
           name='qualification'
           id='input_qualification'
-          maxLength={500}
           cols={50}
           rows={8}
           defaultValue={

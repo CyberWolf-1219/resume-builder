@@ -123,7 +123,6 @@ function WorkExperienceEntry({ entryID, updateWorkExpArray }: Props) {
           onChange={onExpInput}
           name={`achievements`}
           id={`input__achievements`}
-          maxLength={250}
           cols={60}
           rows={5}
           defaultValue={workExpData.experience}></textarea>

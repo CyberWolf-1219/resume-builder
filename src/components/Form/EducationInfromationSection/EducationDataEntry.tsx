@@ -119,7 +119,6 @@ function EducationDataEntry({ entryID, updateEducationDataArray }: Props) {
           required={true}
           name={`highlights`}
           id={`input_highlights`}
-          maxLength={300}
           cols={60}
           rows={10}
           defaultValue={educationData.highlights}></textarea>
