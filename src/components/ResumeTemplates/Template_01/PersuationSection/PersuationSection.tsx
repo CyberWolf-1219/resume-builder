@@ -15,7 +15,7 @@ function PersuationSection() {
             {data.jobInformation.position}
           </strong>
           <br />
-          {data.jobInformation.qualificationExplanation.slice(0, 500)}
+          {data.jobInformation.qualificationExplanation}
         </p>
       </td>
     </tr>
