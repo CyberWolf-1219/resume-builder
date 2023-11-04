@@ -44,12 +44,11 @@ function ProjectsSection() {
     }
 
     setProjectDataEntries((prevVal) => {
-      const data = {
-        description: '',
+      const data: Project = {
         liveLink: '',
         name: '',
         repoLink: '',
-        techStack: [],
+        bulletpoints: [],
       };
 
       return [
