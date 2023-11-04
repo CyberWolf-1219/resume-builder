@@ -6,8 +6,8 @@ interface Props {
 
 function BulletPoint({ text }: Props) {
   return (
-    <li className={''}>
-      <p>{text}</p>
+    <li className={'list-disc w-full h-fit'}>
+      <p className={'whitespace-break-spaces'}>{text}</p>
     </li>
   );
 }

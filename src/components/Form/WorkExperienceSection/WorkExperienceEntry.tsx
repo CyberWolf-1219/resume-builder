@@ -125,7 +125,8 @@ function WorkExperienceEntry({ entryID, updateWorkExpArray }: Props) {
           id={`input__achievements`}
           cols={60}
           rows={5}
-          defaultValue={workExpData.experience}></textarea>
+          defaultValue={workExpData.experience}
+          placeholder={'Split Bulletpoints By A New Line'}></textarea>
       </div>
     </div>
   );
