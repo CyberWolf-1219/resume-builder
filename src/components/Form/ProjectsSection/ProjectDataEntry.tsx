@@ -97,7 +97,7 @@ function ProjectDataEntry({ entryID, currentData, updateProjects }: Props) {
     timeout.current = setTimeout(() => {
       updateProjectData((prevData) => {
         const newData = { ...prevData };
-        newData.description = value;
+        newData.bulletpoints = value.split('\n');
         return newData;
       });
     }, 250);
@@ -149,7 +149,8 @@ function ProjectDataEntry({ entryID, currentData, updateProjects }: Props) {
           className={'w-full h-fit'}
           onChange={onDesciptionChange}
           id='input__description'
-          defaultValue={projectData.description}
+          defaultValue={projectData.bulletpoints}
+          placeholder={'Split Bulletpoints By A New Line'}
         />
       </div>
     </div>

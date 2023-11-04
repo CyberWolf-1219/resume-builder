@@ -26,7 +26,7 @@ export type Project = {
     repoLink: string;
     liveLink: string;
     // techStack: string[];
-    description: string;
+    bulletpoints: string[];
 }
 
 export type EducationInfo = {

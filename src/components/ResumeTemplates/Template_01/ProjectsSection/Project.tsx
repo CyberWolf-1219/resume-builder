@@ -1,5 +1,6 @@
 import React from 'react';
 import { Project } from '../../../../types';
+import Bulletpoint from './Bulletpoint';
 
 interface Props {
   project: Project;
@@ -16,7 +17,16 @@ function Project({ project }: Props) {
           &nbsp;|&nbsp;
           <a href={project.liveLink}>Live Link</a>
         </p>
-        <p>{project.description}</p>
+        <ul>
+          {project.bulletpoints.map((bulletpoint, i) => {
+            return (
+              <Bulletpoint
+                index={i}
+                text={bulletpoint}
+              />
+            );
+          })}
+        </ul>
       </div>
     </li>
   );
